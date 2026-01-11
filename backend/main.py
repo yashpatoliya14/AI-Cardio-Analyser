@@ -17,7 +17,9 @@ app.add_middleware(
 )
 
 # Load the model
-MODEL_PATH = "../models/cardiovascular_model_logistic.joblib"
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "cardiovascular_model_logistic.joblib")
+
 
 try:
     if os.path.exists(MODEL_PATH):
@@ -106,6 +108,6 @@ def predict(data: InputData):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app, host="0.0.0.0", port=8000)

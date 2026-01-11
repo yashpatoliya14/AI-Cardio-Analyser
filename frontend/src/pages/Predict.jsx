@@ -40,7 +40,7 @@ const Predict = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:8000/predict', payload);
+            const response = await axios.post('/api/predict', payload);
             setResult(response.data);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (err) {
