@@ -40,7 +40,7 @@ const Predict = () => {
         };
 
         try {
-            const response = await axios.post('/api/predict', payload);
+            const response = await axios.post(import.meta.env.VITE_BACKEND_URL +  '/api/predict', payload);
             setResult(response.data);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (err) {
